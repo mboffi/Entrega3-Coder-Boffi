@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Libros</h1>
+<form method="get">
+    {% csrf_token %}
+    <input type="text" name="search_query" placeholder="Buscar">
+    <button type="submit">Buscar</button>
+</form>
+<ul>
+    {% for libro in libros %}
+    <li>{{ libro.titulo }} - {{ libro.autor }} - {{ libro.edicion }} - {{ libro.editorial }} - {{ libro.genero }} - {{ libro.idioma }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'libro_add' %}">Agregar libro</a>
+{% endblock %}

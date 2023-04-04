@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Idiomas</h1>
+<ul>
+    {% for idioma in object_list %}
+    <li>{{ idioma.nombre }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'idioma_add' %}">Agregar idioma</a>
+{% endblock %}
